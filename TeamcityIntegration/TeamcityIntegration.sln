@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamcityIntegration", "TeamcityIntegration\TeamcityIntegration.csproj", "{072468AC-B350-4E24-8808-7E4FE7D51EBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolingAutomation", "ToolingAutomation\ToolingAutomation.csproj", "{7B4492E4-9AA2-4FAA-BF1A-CF1AF3C44CEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{072468AC-B350-4E24-8808-7E4FE7D51EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072468AC-B350-4E24-8808-7E4FE7D51EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072468AC-B350-4E24-8808-7E4FE7D51EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072468AC-B350-4E24-8808-7E4FE7D51EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B4492E4-9AA2-4FAA-BF1A-CF1AF3C44CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B4492E4-9AA2-4FAA-BF1A-CF1AF3C44CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B4492E4-9AA2-4FAA-BF1A-CF1AF3C44CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B4492E4-9AA2-4FAA-BF1A-CF1AF3C44CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8324EB5-C7FF-436E-AEB2-750AB4737209}
+	EndGlobalSection
+EndGlobal
