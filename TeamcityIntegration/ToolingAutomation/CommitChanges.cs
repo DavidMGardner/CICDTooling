@@ -148,7 +148,7 @@ namespace ToolingAutomation
                         }
                         outputList.Add(output);
 
-                        IOrderedEnumerable<CommitComments> orderedEnumerable = outputList.OrderBy(comments => comments.Version);
+                        IOrderedEnumerable<CommitComments> orderedEnumerable = outputList.OrderByDescending(comments => comments.Version);
 
                         string json = JsonConvert.SerializeObject(output, Formatting.Indented);
                         using (StreamWriter file = File.CreateText(OutputFileLocation))
