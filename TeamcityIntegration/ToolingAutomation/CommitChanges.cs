@@ -148,11 +148,13 @@ namespace ToolingAutomation
                         }
                         outputList.Add(output);
 
+                        IOrderedEnumerable<CommitComments> orderedEnumerable = outputList.OrderBy(comments => comments.Version);
+
                         string json = JsonConvert.SerializeObject(output, Formatting.Indented);
                         using (StreamWriter file = File.CreateText(OutputFileLocation))
                         {
                             JsonSerializer serializer = new JsonSerializer();
-                            serializer.Serialize(file, outputList);
+                            serializer.Serialize(file, orderedEnumerable);
                         }
                     }
                 }
