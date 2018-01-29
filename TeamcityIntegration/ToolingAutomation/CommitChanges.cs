@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -137,7 +138,8 @@ namespace ToolingAutomation
                             CommitDetails = changeDetails.Select(s => new CommitDetail
                             {
                                 UserName = s.UserName,
-                                Comment = s.Comment
+                                Comment = s.Comment,
+                                Date = s.Date
                             }).ToList()
                         };
 
@@ -182,13 +184,17 @@ namespace ToolingAutomation
                 if (changeDoc.Root != null)
                 {
                         
-                    var userName = changeDoc.Root?.Attribute("username")?.Value;
-                    var comment = changeDoc.Root?.Element("comment")?.Value;
+                    string userName = changeDoc.Root?.Attribute("username")?.Value;
+                    string comment = changeDoc.Root?.Element("comment")?.Value;
+                    string date = changeDoc.Root?.Attribute("date")?.Value;
+
+                    DateTime.TryParseExact(date, "yyyyMMdd'T'HHmmsszzz", new DateTimeFormatInfo(), DateTimeStyles.None, out var dateTime);
 
                     changeDetails.Add(new ChangeDetail
                     {
                         UserName = userName,
-                        Comment = comment
+                        Comment = comment,
+                        Date = string.Format("{0:G}", dateTime)
                     });
                 }
             }
