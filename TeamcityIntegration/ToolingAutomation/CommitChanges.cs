@@ -112,7 +112,9 @@ namespace ToolingAutomation
                 // http://teamcity.sogeti-techshare.com:8112
 
                 HttpClient client = new HttpClient();
-                var byteArray = Encoding.ASCII.GetBytes("admin:#meister-Sogeti!");
+                //var byteArray = Encoding.ASCII.GetBytes("admin:#meister-Sogeti!");
+                var byteArray = Encoding.ASCII.GetBytes(string.Format("{0}:{1}", UserName, Password));
+
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
                 var stringTask = await client.GetStringAsync(String.Format("{0}/httpAuth/app/rest/changes?build=id:{1}", TeamCityServer, BuildId));
