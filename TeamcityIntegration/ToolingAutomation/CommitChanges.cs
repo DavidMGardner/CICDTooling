@@ -117,7 +117,11 @@ namespace ToolingAutomation
 
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
-                var stringTask = await client.GetStringAsync(String.Format("{0}/httpAuth/app/rest/changes?build=id:{1}", TeamCityServer, BuildId));
+                var url = String.Format("{0}/httpAuth/app/rest/changes?build=id:{1}", TeamCityServer, BuildId);
+
+                Console.WriteLine("calling url: " + url);
+
+                var stringTask = await client.GetStringAsync(url);
 
                 XDocument changeDoc = XDocument.Parse(stringTask);
                 if (changeDoc.Root != null)
