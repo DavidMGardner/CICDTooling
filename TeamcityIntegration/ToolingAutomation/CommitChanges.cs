@@ -105,6 +105,11 @@ namespace ToolingAutomation
             });
         }
 
+        private byte[] GetCredentials()
+        {
+            return Encoding.ASCII.GetBytes(string.Format("{0}:{1}", UserName, Password));
+        }
+
         public async Task HandleCommand()
         {
             try
@@ -112,10 +117,9 @@ namespace ToolingAutomation
                 // http://teamcity.sogeti-techshare.com:8112
 
                 HttpClient client = new HttpClient();
-                //var byteArray = Encoding.ASCII.GetBytes("admin:#meister-Sogeti!");
-                var byteArray = Encoding.ASCII.GetBytes(string.Format("{0}:{1}", UserName, Password));
+                
 
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(GetCredentials()));
 
                 var url = String.Format("{0}/httpAuth/app/rest/changes?build=id:{1}", TeamCityServer, BuildId);
 
@@ -177,8 +181,8 @@ namespace ToolingAutomation
         private async Task<List<ChangeDetail>> GetCommitMessages(List<Change> changes)
         {
             HttpClient client = new HttpClient();
-            var byteArray = Encoding.ASCII.GetBytes("admin:#meister-Sogeti!");
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(GetCredentials()));
 
             List<ChangeDetail> changeDetails = new List<ChangeDetail>();
 
